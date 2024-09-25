@@ -11,6 +11,7 @@ on:
           - '--dry-run'
           - '--provenance --access public'
           - '--provenance --access public --tag preview'
+          - '--access public'
 
 jobs:
   build:
