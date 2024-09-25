@@ -21,7 +21,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/vtbag/trun-signal.git"
+		"url": "git+https://github.com/vtbag/turn-signal.git"
 	},
 	"keywords": [
 		"view",
