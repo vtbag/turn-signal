@@ -10,7 +10,6 @@ function pageReveal(e: PageRevealEvent) {
 			hereIdx = act.entry?.index;
 			fromIdx = act.from?.index;
 		} else {
-			console.log('pages :>> ', pages);
 			if (pages.length) {
 				const index = (url: string) => pages.indexOf(new URL(url).pathname);
 				hereIdx = index(location.href);
@@ -24,8 +23,6 @@ function pageReveal(e: PageRevealEvent) {
 		emit();
 
 		function emit() {
-			console.log('hereIdx :>> ', hereIdx);
-			console.log('fromIdx :>> ', fromIdx);
 			let direction = ['backward', 'same', 'forward'];
 			let value;
 			let dir = currentScript!.dataset.directionAttribute;
@@ -45,7 +42,6 @@ function pageReveal(e: PageRevealEvent) {
 						: hereIdx === fromIdx
 							? direction[1]
 							: direction[2];
-							console.log('value :>> ', value);
 				if (attributeName && value) {
 					document.documentElement.setAttribute(attributeName, value);
 					e.viewTransition.finished.then(() =>
