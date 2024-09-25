@@ -72,4 +72,4 @@ function allPages() {
 		: [];
 }
 
-'onpagereveal' in window && addEventListener('pagereveal', pageReveal, { once: true });
+'onpagereveal' in window && addEventListener('pagereveal', pageReveal);

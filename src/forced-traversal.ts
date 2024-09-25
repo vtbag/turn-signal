@@ -20,4 +20,4 @@ function navigate(e: NavigateEvent) {
 		}
 	}
 }
-navigation?.addEventListener('navigate', navigate, { once: true });
+navigation?.addEventListener('navigate', navigate);
