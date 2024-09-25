@@ -1,6 +1,6 @@
 {
 	"name": "@vtbag/turn-signal",
-	"version": "0.0.99",
+	"version": "1.0.0",
 	"main": "lib/index.js",
 	"description": "Turn-Signal is a lightweight script that enhances cross-document navigation by detecting the direction of browser navigation. It enables developers to create smooth, responsive transitions that adjust based on forward or backward navigation, delivering a more intuitive user experience.",
 	"files": [
