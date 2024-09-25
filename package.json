@@ -28,10 +28,11 @@
 		"transitions",
 		"view transition",
 		"view-transition",
-		"preserve",
-		"state",
+		"directions",
+		"animations",
 		"cross-document",
-		"DOM"
+		"backward",
+		"history-traversal"
 	],
 	"author": "vtbag",
 	"license": "ISC",
