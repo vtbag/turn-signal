@@ -28,4 +28,4 @@ The script automatically detects the traversal direction and sets `backward`, `n
 
 If your site has the concept of a _previous_ and _next_ page, the Turn-Signal can automatically generate directional transitions for you.
 
-[See the Turn Signal in action](https://vtbag.pages.dev/signal/1/) and [see how it can be customized](https://vtbag.pages.dev/tools/turn-signal/).
+[See the Turn Signal in action](https://vtbag.pages.dev/signal-demo/bag/) and [see how it can be customized](https://vtbag.pages.dev/tools/turn-signal/).
