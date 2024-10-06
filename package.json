@@ -1,11 +1,14 @@
 {
 	"name": "@vtbag/turn-signal",
+	"type": "module",
 	"version": "1.0.2",
 	"main": "lib/index.js",
 	"description": "Turn-Signal is a lightweight script that enhances cross-document navigation by detecting the direction of browser navigation. It enables developers to create smooth, responsive transitions that adjust based on forward or backward navigation, delivering a more intuitive user experience.",
 	"files": [
 		"lib/index.js",
-		"lib/forced-traversal.js"
+		"lib/index.d.ts",
+		"lib/forced-traversal.js",
+		"lib/forced-traversal.d.ts"
 	],
 	"exports": {
 		".": "./lib/index.js",
@@ -48,6 +51,7 @@
 		"@changesets/cli": "^2.27.9",
 		"@eslint/js": "^9.12.0",
 		"@types/dom-navigation": "^1.0.4",
+		"@types/dom-view-transitions": "^1.0.5",
 		"esbuild": "^0.24.0",
 		"prettier": "^3.3.3",
 		"typescript": "^5.6.2"
