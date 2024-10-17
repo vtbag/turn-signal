@@ -1,5 +1,12 @@
 # @vtbag/turn-signal
 
+## 1.0.3 - 2024-10-17
+
+### Patch Changes
+
+- 3de8989: Dependency updates
+- 961b31e: Adds .d.ts declarations
+
 ## 1.0.2 - 2024-09-25
 
 ### Patch Changes
