@@ -13,7 +13,7 @@ The @vtbag website can be found at https://vtbag.pages.dev/
 
 ## !!! News !!!
 
-Never trust a *.0 version ;-) Sorry for the inconvenience!
+Dependency updates.
 
 For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md)
 
