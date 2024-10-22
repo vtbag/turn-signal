@@ -1,5 +1,14 @@
 # @vtbag/turn-signal
 
+## 1.1.0
+
+### Minor Changes
+
+- 58b6a3a: Transition types and direction attributes are now also determined on the old page!
+  And the additional `old` and `new` types tell you, where you are.
+  One use case is to exclude elements from view transitions depending on the direction.
+  With this change you can not only exclude or add the new images but also the old images!
+
 ## 1.0.3 - 2024-10-17
 
 ### Patch Changes
