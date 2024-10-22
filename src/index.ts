@@ -1,7 +1,7 @@
 const currentScript = document.currentScript;
-function pageReveal(e: PageRevealEvent) {
-	//@ts-expect-error
-	const act = window.navigation?.activation;
+
+function direction(e: PageSwapEvent | PageRevealEvent) {
+	const act = e.type === 'pageswap' ? (e as PageSwapEvent).activation : navigation?.activation;
 	if (e.viewTransition && act) {
 		const pages = allPages();
 		let hereIdx = 1,
@@ -12,7 +12,7 @@ function pageReveal(e: PageRevealEvent) {
 		} else {
 			if (pages.length) {
 				const index = (url: string) => pages.indexOf(new URL(url).pathname);
-				hereIdx = index(location.href);
+				hereIdx = index(act.entry?.url);
 				fromIdx = index(act.from?.url);
 				if (hereIdx === -1 || fromIdx === -1) {
 					hereIdx = 1;
@@ -59,6 +59,7 @@ function pageReveal(e: PageRevealEvent) {
 			}
 			value = hereIdx < fromIdx ? direction[0] : hereIdx === fromIdx ? direction[1] : direction[2];
 			if (value) e.viewTransition.types.add(value);
+			e.viewTransition.types.add(e.type === 'pageswap' ? 'old' : 'new');
 		}
 	}
 }
@@ -72,4 +73,5 @@ function allPages() {
 		: [];
 }
 
-'onpagereveal' in window && addEventListener('pagereveal', pageReveal);
+'onpagereveal' in window && addEventListener('pagereveal', direction);
+'onpageswap' in window && addEventListener('pageswap', direction);

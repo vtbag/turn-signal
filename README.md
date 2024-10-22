@@ -13,9 +13,9 @@ The @vtbag website can be found at https://vtbag.pages.dev/
 
 ## !!! News !!!
 
-Dependency updates.
+Transition types and direction attributes are now also determined on the old page!
 
-For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md)
+For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.pages.dev/tools/turn-signal/).
 
 
 ## What is it?
