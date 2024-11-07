@@ -9,13 +9,13 @@ Turn-Signal: Directional view transitions for intuitive navigation.
 ![minzip](https://badgen.net/bundlephobia/minzip/@vtbag/turn-signal)
 [![NPM Downloads](https://img.shields.io/npm/dw/@vtbag/turn-signal)](https://www.npmjs.com/package/@vtbag/turn-signal)
 
-The @vtbag website can be found at https://vtbag.pages.dev/
+The @vtbag website can be found at https://vtbag.dev/
 
 ## !!! News !!!
 
 Transition types and direction attributes are now also determined on the old page!
 
-For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.pages.dev/tools/turn-signal/).
+For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.dev/tools/turn-signal/).
 
 
 ## What is it?
@@ -28,4 +28,4 @@ The script automatically detects the traversal direction and sets `backward`, `n
 
 If your site has the concept of a _previous_ and _next_ page, the Turn-Signal can automatically generate directional transitions for you.
 
-[See the Turn Signal in action](https://vtbag.pages.dev/signal-demo/bag/) and [see how it can be customized](https://vtbag.pages.dev/tools/turn-signal/).
+[See the Turn Signal in action](https://vtbag.dev/signal-demo/bag/) and [see how it can be customized](https://vtbag.dev/tools/turn-signal/).
