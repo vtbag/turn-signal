@@ -1,19 +1,19 @@
 const currentScript = document.currentScript;
 
 function direction(e: PageSwapEvent | PageRevealEvent) {
-	const act = e.type === 'pageswap' ? (e as PageSwapEvent).activation : navigation?.activation;
-	if (e.viewTransition && act) {
+	const activation = e.type === 'pageswap' ? (e as PageSwapEvent).activation : navigation?.activation;
+	if (e.viewTransition && activation) {
 		const pages = allPages();
 		let hereIdx = 1,
 			fromIdx = 0;
-		if (act.navigationType === 'traverse' && pages.length === 0) {
-			hereIdx = act.entry?.index;
-			fromIdx = act.from?.index;
+		if (activation.navigationType === 'traverse' && pages.length === 0) {
+			hereIdx = activation.entry?.index;
+			fromIdx = activation.from?.index;
 		} else {
 			if (pages.length) {
 				const index = (url: string) => pages.indexOf(new URL(url).pathname);
-				hereIdx = index(act.entry?.url);
-				fromIdx = index(act.from?.url);
+				hereIdx = index(activation.entry?.url);
+				fromIdx = index(activation.from?.url);
 				if (hereIdx === -1 || fromIdx === -1) {
 					hereIdx = 1;
 					fromIdx = 0;
@@ -75,3 +75,4 @@ function allPages() {
 
 'onpagereveal' in window && addEventListener('pagereveal', direction);
 'onpageswap' in window && addEventListener('pageswap', direction);
+
