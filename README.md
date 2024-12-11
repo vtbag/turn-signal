@@ -29,8 +29,6 @@ For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/C
 
 > Transition types and direction attributes are now also determined on the old page!
 
-For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.dev/tools/turn-signal/).
-
 ## What is it?
 
 Turn-Signal is a lightweight script that enhances *browser-native* *cross-document* **view transitions** by detecting the **direction** of browser **navigation**. It enables developers to create smooth, responsive transitions that adjust based on forward or backward navigation, delivering a more intuitive user experience.
