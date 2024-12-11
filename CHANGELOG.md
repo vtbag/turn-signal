@@ -1,5 +1,11 @@
 # @vtbag/turn-signal
 
+## 1.2.1 - 2024-12-11
+
+### Patch Changes
+
+- 34d6a93: Removes log statements
+
 ## 1.2.0 - 2024-12-11
 
 ### Minor Changes
