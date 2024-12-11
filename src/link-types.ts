@@ -18,7 +18,6 @@ addEventListener('pageswap', (event) => {
 	if (activation(event).navigationType === 'traverse' && direction(event) === 'backward') return;
 	if (lastAnchor) {
 		types = lastAnchor.getAttribute('data-vtbag-link-types') ?? '';
-		console.log('s-types :>> ', types);
 		setViewTransitionTypes(types);
 	}
 	sessionStorage?.setItem('vtbag-link-types', types.split(/\s*\/\s*/, 1)[0]);
@@ -26,7 +25,6 @@ addEventListener('pageswap', (event) => {
 		?.getItem('vtbag-link-types')
 		?.split(/\s+/)
 		.forEach((type) => event.viewTransition?.types?.add(type));
-	console.log('x', ...event.viewTransition?.types);
 });
 
 addEventListener('pagereveal', (event) => {
@@ -37,7 +35,6 @@ addEventListener('pagereveal', (event) => {
 		types.includes('/') && (types = types.split(/\s*\/\s*/, 2)[1]);
 	}
 	types.split(/\s+/).forEach((type) => event.viewTransition?.types?.add(type));
-	console.log('r-types :>> ', [...event.viewTransition?.types]);
 });
 
 export function setViewTransitionTypes(types: string) {

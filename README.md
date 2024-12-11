@@ -21,15 +21,13 @@ Check out the [image viewer tech demo](https://vtbag.dev/viewwe-demo/) for a han
 
 Happy animating! 🎉
 
+For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md).
 
-
-
+<!--{/*and the [documentation](https://vtbag.dev/tools/turn-signal/).*/}-->
 
 ### What happened before?
 
 > Transition types and direction attributes are now also determined on the old page!
-
-For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.dev/tools/turn-signal/).
 
 ## What is it?
 
