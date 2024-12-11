@@ -8,11 +8,14 @@
 		"lib/index.js",
 		"lib/index.d.ts",
 		"lib/forced-traversal.js",
-		"lib/forced-traversal.d.ts"
+		"lib/forced-traversal.d.ts",
+		"lib/link-types.js",
+		"lib/link-types.d.ts"
 	],
 	"exports": {
 		".": "./lib/index.js",
-		"./forced-traversal": "./lib/forced-traversal.js"
+		"./forced-traversal": "./lib/forced-traversal.js",
+		"./link-types": "./lib/link-types.js"
 	},
 	"scripts": {
 		"dev": "bin/bundle dev",

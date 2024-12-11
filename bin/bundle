@@ -6,6 +6,6 @@ else
   OPTS="--minify"
   (cd lib && rm *.js.map) >> /dev/null 2>&1
 fi
-npx esbuild src/index.ts src/forced-traversal.ts --bundle $OPTS --target=ESnext --outdir=lib
+npx esbuild src/index.ts src/forced-traversal.ts src/link-types.ts --bundle $OPTS --target=ESnext --outdir=lib
 
 tsc
