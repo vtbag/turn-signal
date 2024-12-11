@@ -29,11 +29,6 @@ For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/C
 
 > Transition types and direction attributes are now also determined on the old page!
 
-
-### What happened before?
-
-> Transition types and direction attributes are now also determined on the old page!
-
 For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.dev/tools/turn-signal/).
 
 ## What is it?
