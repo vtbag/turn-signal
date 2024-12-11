@@ -13,10 +13,23 @@ The @vtbag website can be found at https://vtbag.dev/
 
 ## !!! News !!!
 
-Transition types and direction attributes are now also determined on the old page!
+The Turn-Signal learned a new trick! With the new `link-types` script, you can assign view transition types directly to the links that trigger navigation. This means you can create different view transition animations for the same page, based on the link that takes you there! Simply use `data-vtbag-link-types` attributes to set transition types and use them in you CSS to guard your animation rules.
+
+But that's not all: `link-types` lets you specify different transition types for history back navigation too!
+
+Check out the [image viewer tech demo](https://vtbag.dev/viewwe-demo/) for a hands-on example and the docs at [vtbag.dev/tools/turn-signal](https://vtbag.dev/tools/turn-signal#link-types).
+
+Happy animating! 🎉
+
+
+
+
+
+### What happened before?
+
+> Transition types and direction attributes are now also determined on the old page!
 
 For details see the [CHANGELOG](https://github.com/vtbag/turn-signal/blob/main/CHANGELOG.md) and the [documentation](https://vtbag.dev/tools/turn-signal/).
-
 
 ## What is it?
 
