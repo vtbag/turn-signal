@@ -1,5 +1,15 @@
 # @vtbag/turn-signal
 
+## 1.3.0
+
+### Minor Changes
+
+- 1b450ab: link-types: assign view transition types directly to the links that trigger navigation!
+
+### Patch Changes
+
+- 34d6a93: Removes log statements
+
 ## 1.2.0 - 2024-12-11
 
 ### Minor Changes
