@@ -1,5 +1,11 @@
 # @vtbag/turn-signal
 
+## 1.2.2 - 2024-12-12
+
+### Patch Changes
+
+- 9591c7e: makes code a bit more robust
+
 ## 1.2.1 - 2024-12-11
 
 ### Patch Changes
