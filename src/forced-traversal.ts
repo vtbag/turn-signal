@@ -2,19 +2,19 @@ const navigation = window.navigation;
 
 function navigate(e: NavigateEvent) {
 	if (e.navigationType === 'push') {
-		const entries = navigation.entries();
+		const entries = navigation?.entries() ?? [];
 		const next = e.destination.url;
-		for (let i = navigation.currentEntry?.index ?? -1; i >= 0; --i) {
+		for (let i = navigation?.currentEntry?.index ?? -1; i >= 0; --i) {
 			if (next === entries[i].url) {
 				e.preventDefault();
-				history.go(i - navigation.currentEntry!.index);
+				history.go(i - window.navigation?.currentEntry!.index);
 				return;
 			}
 		}
-		for (let i = navigation.currentEntry?.index ?? entries.length; i < entries.length; ++i) {
+		for (let i = navigation?.currentEntry?.index ?? entries.length; i < entries.length; ++i) {
 			if (next === entries[i].url) {
 				e.preventDefault();
-				history.go(i - navigation.currentEntry!.index);
+				history.go(i - navigation?.currentEntry!.index);
 				return;
 			}
 		}

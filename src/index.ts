@@ -2,7 +2,7 @@ const currentScript = document.currentScript;
 
 function direction(e: PageSwapEvent | PageRevealEvent) {
 	const activation =
-		e.type === 'pageswap' ? (e as PageSwapEvent).activation : navigation?.activation;
+		e.type === 'pageswap' ? (e as PageSwapEvent).activation : window.navigation?.activation;
 	if (e.viewTransition && activation) {
 		const pages = allPages();
 		let hereIdx = 1,
