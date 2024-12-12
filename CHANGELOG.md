@@ -1,6 +1,6 @@
 # @vtbag/turn-signal
 
-## 1.2.2
+## 1.2.2 - 2024-12-12
 
 ### Patch Changes
 
