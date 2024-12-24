@@ -21,6 +21,7 @@ test('full', async ({ page }) => {
 	text = "";
 	await page.locator('#l2').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 backward old [pagereveal] 2 backward new");
 	text = "";
 	await page.goBack();

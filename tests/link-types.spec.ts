@@ -24,7 +24,7 @@ test('backward traversal detection', async ({ page }) => {
 	text = "";
 	await page.goBack();
 	await expect(page).toHaveTitle("Page 1");
-	await page.waitForTimeout(100);
+	await page.waitForTimeout(150);
 	expect(text).toBe(" [pageswap] 1 forward [pagereveal] 1 forward");
 });
 
@@ -223,6 +223,7 @@ test('2 normal', async ({browserName, page }) => {
 	await start2(page);
 	await page.locator('#l4').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 0 [pagereveal] 0");
 	text = "";
 	await page.goBack();
@@ -236,6 +237,7 @@ test('2 empty', async ({browserName, page }) => {
 	await start2(page);
 	await page.locator('#l5').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 0 [pagereveal] 0");
 	text = "";
 	await page.goBack();
@@ -285,6 +287,7 @@ test('2 full', async ({browserName, page }) => {
 	await start2(page);
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 f1 f2 [pagereveal] 2 f1 f2");
 	text = "";
 	await page.locator('#l2').click();

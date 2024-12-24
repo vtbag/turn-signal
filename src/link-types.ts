@@ -11,11 +11,12 @@ import { canDetectBackwardTraversal, isBackwardTraversal } from './backward-trav
 const LINK_TYPES = 'data-vtbag-link-types';
 const ALL_LINK_TYPES = 'vtbag-all-link-types';
 
-const allTypes = JSON.parse(sessionStorage.getItem(ALL_LINK_TYPES) ?? '[]');
+let allTypes:string[]=[];
 
 addEventListener('pageswap', (event) => {
 	const lastAnchor = sourceElement();
 	if (!event.viewTransition) return;
+	const allTypes = JSON.parse(sessionStorage.getItem(ALL_LINK_TYPES) ?? '[]');
 
 	let types = '';
 	if (event.activation.navigationType === 'traverse') {
@@ -29,7 +30,7 @@ addEventListener('pageswap', (event) => {
 					: back
 						? historyIndex(event.activation.entry.url ?? '')
 						: currentIndex;
-			types = allTypes[idx];
+			types = allTypes[idx] ?? '';
 			if (back) {
 				types.includes('/') && (types = types.split(/\s*\/\s*/, 2)[1]);
 			} else {
@@ -49,6 +50,8 @@ addEventListener('pageswap', (event) => {
 
 addEventListener('pagereveal', (event) => {
 	initHistory();
+	const allTypes = JSON.parse(sessionStorage.getItem(ALL_LINK_TYPES) ?? '[]');
+
 	if (!event.viewTransition) return;
 	let types = allTypes[currentIndex] ?? '';
 	if (isBackwardTraversal(event)) {
@@ -58,11 +61,11 @@ addEventListener('pagereveal', (event) => {
 			navigationHistoryKind !== 'navigationAPI' ||
 			window.navigation.activation.entry.url !== window.navigation.activation.from.url
 		) {
-			types = allTypes[lastIndex];
+			types = allTypes[lastIndex] ?? '';
 		}
 		types.includes('/') && (types = types.split(/\s*\/\s*/, 1)[0]);
 	}
-	setViewTransitionTypes(types, event);
+	types && setViewTransitionTypes(types, event);
 });
 
 function setViewTransitionTypes(types: string, event: PageSwapEvent | PageRevealEvent) {

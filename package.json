@@ -1,7 +1,7 @@
 {
 	"name": "@vtbag/turn-signal",
 	"type": "module",
-	"version": "1.2.3",
+	"version": "0.0.0-experimental-link-types",
 	"main": "lib/index.js",
 	"description": "Turn-Signal is a lightweight script that enhances cross-document navigation by detecting the direction of browser navigation. It enables developers to create smooth, responsive transitions that adjust based on forward or backward navigation, delivering a more intuitive user experience.",
 	"files": [
@@ -55,14 +55,14 @@
 		"url": "https://github.com/sponsors/martrapp"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.27.10",
+		"@changesets/cli": "^2.27.11",
+		"@eslint/js": "^9.17.0",
 		"@playwright/test": "latest",
-		"@eslint/js": "^9.16.0",
 		"@types/dom-navigation": "^1.0.4",
 		"@types/dom-view-transitions": "^1.0.5",
-		"esbuild": "^0.24.0",
+		"esbuild": "^0.24.2",
 		"prettier": "^3.4.2",
-		"typescript": "^5.7.2",
-		"serve": "^14.0.1"
+		"serve": "^14.0.1",
+		"typescript": "^5.7.2"
 	}
 }
