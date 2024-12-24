@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Page 1</title>
+		<script src="/index.js"></script>
+		<script>
+			addEventListener(
+				'pageswap',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pageswap]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+			addEventListener(
+				'pagereveal',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pagereveal]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+		</script>
+		<style>
+			@view-transition {
+				navigation: auto;
+			}
+			::view-transition-group(*) {
+				animation-duration: 25ms;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Page 1</h1>
+		<a id="l1" href="/bf2/">To 2</a><br />
+	</body>
+</html>

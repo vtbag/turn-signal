@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Page 3</title>
+		<script src="/index.js"  data-selector="a" data-vtbag-sloppy-history></script>
+		<script>
+			addEventListener(
+				'pageswap',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pageswap]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+			addEventListener(
+				'pagereveal',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pagereveal]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+		</script>
+		<style>
+			@view-transition {
+				navigation: auto;
+			}
+			::view-transition-group(*) {
+				animation-duration: 25ms;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Page 3</h1>
+		<a id="l1" href="/signal11/">Page 1</a>
+		<a id="l2" href="/signal12/">Page 2</a>
+		<a id="l3" href="/signal13/">Page 3</a>
+		<a id="l4" href="/signal14/">Page 4</a>
+	</body>
+</html>

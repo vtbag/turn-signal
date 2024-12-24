@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Page 1</title>
+		<script src="/link-types.js"></script>
+		<script>
+			addEventListener(
+				'pageswap',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pageswap]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+			addEventListener(
+				'pagereveal',
+				(e) =>
+					e.viewTransition &&
+					console.log('test [pagereveal]', e.viewTransition.types.size, ...e.viewTransition.types)
+			);
+		</script>
+		<style>
+			@view-transition {
+				navigation: auto;
+			}
+			::view-transition-group(*) {
+				animation-duration: 25ms;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Home Page</h1>
+		<a id="l1" href="/page2/" data-vtbag-link-types="forward">Forward link</a><br />
+		<a id="l2" href="/page2/" data-vtbag-link-types="forward/backward">Forward/Backward link</a
+		><br />
+		<a id="l3" href="/page2/" data-vtbag-link-types="f1 f2/b1 b2">multi link</a><br />
+		<a id="l4" href="/page2/">Normal link</a><br />
+		<a id="l5" href="/page2/" data-vtbag-link-types="">empty link</a><br />
+		<a id="l6" href="/page2/" data-vtbag-link-types="/">empty link2</a><br />
+		<a id="l7" href="javascript:history.go(3)">3 fwd</a>
+		<a id="l8" href="javascript:history.go(0)">reload</a>
+		<a id="l9" href="/page1/" data-vtbag-link-types="go">reload</a>
+		<a id="l0" href="javascript:history.go(0)" data-vtbag-link-types="hey">reload</a>
+	</body>
+</html>
