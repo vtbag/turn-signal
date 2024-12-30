@@ -1,5 +1,19 @@
 # @vtbag/turn-signal
 
+## 1.3.0 - 2024-12-30
+
+### Minor Changes
+
+- 1594efb: This release adds the `link-types` script that let's you annotate view transition types at `<a>` elements by adding the `data-vtbag-link-types` attributes.
+
+  ```html
+  <a href="..." data-vtbag-link-types="backward types/forward types"></a>
+  ```
+
+  For details on how to use the scripts see the [documentation](https://vtbag.dev/tools/turn-signal/).
+
+  This release also adds support for browsers that have native cross-document view transitions support but don't support the Navigation API. Looking at you, Safari!
+
 ## 1.2.2 - 2024-12-12
 
 ### Patch Changes
