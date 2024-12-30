@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>Page 1</title>
+		<script src="/_test_history.js"></script>
+		<style>
+			@view-transition {
+				navigation: auto;
+			}
+			::view-transition-group(*) {
+				animation-duration: 25ms;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Home Page</h1>
+		<a id="l0" href="/history1/">Same</a><br />
+		<a id="l1" href="/history1/#hash">Same#hash</a><br /><br />
+		<a id="l2" href="/history2/">Forward link</a><br /><br />
+		<a id="l3" href="/history2/#hash">Forward link#hash</a><br />
+	</body>
+</html>

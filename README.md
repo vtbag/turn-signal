@@ -17,7 +17,7 @@ The Turn-Signal learned a new trick! With the new `link-types` script, you can a
 
 But that's not all: `link-types` lets you specify different transition types for history back navigation, too!
 
-Check out the [image viewer tech demo](https://vtbag.dev/viewer-demo/) for a hands-on example and the docs at [vtbag.dev/tools/turn-signal](https://vtbag.dev/tools/turn-signal/link-types).
+Check out the [image viewer tech demo](https://vtbag.dev/viewer-demo/) for a hands-on example and the docs at [vtbag.dev/tools/turn-signal](https://vtbag.dev/tools/turn-signal/#link-types).
 
 Happy animating! 🎉
 

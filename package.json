@@ -6,19 +6,17 @@
 	"description": "Turn-Signal is a lightweight script that enhances cross-document navigation by detecting the direction of browser navigation. It enables developers to create smooth, responsive transitions that adjust based on forward or backward navigation, delivering a more intuitive user experience.",
 	"files": [
 		"lib/index.js",
-		"lib/index.d.ts",
 		"lib/forced-traversal.js",
-		"lib/forced-traversal.d.ts",
 		"lib/link-types.js",
-		"lib/link-types.d.ts",
-		"lib/link-types-plus.js",
-		"lib/link-types-plus.d.ts"
+		"lib/directions.js",
+		"lib/debug.js"
 	],
 	"exports": {
 		".": "./lib/index.js",
-		"./forced-traversal": "./lib/forced-traversal.js",
+		"./directions": "./lib/directions.js",
 		"./link-types": "./lib/link-types.js",
-		"./link-types-plus": "./lib/link-types-plus.js"
+		"./forced-traversal": "./lib/forced-traversal.js",
+		"./debug": "./lib/debug.js"
 	},
 	"scripts": {
 		"dev": "bin/bundle dev",
@@ -27,7 +25,7 @@
 		"changeset": "changeset",
 		"release": "changeset publish",
 		"start": "npx serve -l 3000 tests",
-		"test": "bin/bundle test && playwright test"
+		"test": "playwright test"
 	},
 	"repository": {
 		"type": "git",

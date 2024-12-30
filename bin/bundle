@@ -1,5 +1,6 @@
 #! /bin/sh
 
+rm lib/*
 if [ "$1" = "dev" ]; then
   OPTS="--sourcemap --watch"
 elif [ "$1" = "test" ]; then
@@ -8,7 +9,12 @@ else
   OPTS="--minify"
   (cd lib && rm *.js.map) >> /dev/null 2>&1
 fi
-npx esbuild src/index.ts src/forced-traversal.ts src/link-types.ts --bundle $OPTS --target=ESnext --outdir=lib
+npx esbuild src/index.ts src/forced-traversal.ts src/link-types.ts src/directions.ts src/debug.ts --bundle $OPTS --target=ESnext --outdir=lib
 
 cp lib/*.js lib/*.map tests
 tsc
+rm -f lib/debug.d.ts
+rm -f lib/directions.d.ts
+rm -f lib/forced-traversal.d.ts
+rm -f lib/index.d.ts
+rm -f lib/link-types.d.ts
