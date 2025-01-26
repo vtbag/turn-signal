@@ -16,8 +16,9 @@ const pageReveal = (e: PageRevealEvent) => {
 addEventListener('pagereveal', pageReveal);
 
 const pageSwap = (e:PageSwapEvent) => {
+	if (!e.activation) return;
 	navigationType = e.activation.navigationType;
-	fromUrl = e.activation.from.url ?? '';
+	fromUrl = e.activation.from?.url ?? '';
 	toUrl = e.activation.entry.url ?? '';
 	from = history.state?.vtbagId;
 	to =
@@ -26,7 +27,7 @@ const pageSwap = (e:PageSwapEvent) => {
 			: navigationType === 'replace'
 				? from
 				: e.activation.entry.index !== -1
-					? from + (e.activation.entry.index - e.activation.from.index)
+					? from + (e.activation.entry.index - (e.activation.from?.index??-1))
 					: NaN;
 	sessionStorage.setItem('vtbag-navigation-type', navigationType);
 	sessionStorage.setItem('vtbag-from', fromUrl);
