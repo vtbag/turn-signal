@@ -1,10 +1,10 @@
 import { test, expect, Page } from '@playwright/test';
 let text = "";
-async function start(page: Page) {
+async function start(page: Page, url="http://localhost:3000/page1/", title="Page 1") {
 	text = "";
 	page.on("console", msg => msg.text().startsWith("test") && (text += msg.text().slice(4)));
-	await page.goto('http://localhost:3000/page1/');
-	await expect(page).toHaveTitle("Page 1");
+	await page.goto(url);
+	await expect(page).toHaveTitle(title);
 	expect(text).toBe("");
 	text = "";
 }
@@ -282,5 +282,71 @@ test('s full', async ({ page, browserName }) => {
 	await page.locator('#l0').click();
 	await expect(page).toHaveTitle("Page 1");
 	expect(text).toBe("");
+});
+
+test('override', async ({ page, browserName }) => {
+	test.skip(browserName === 'webkit', "not for webkit");
+	await start(page, "http://localhost:3000/page5/", "Page 5");
+
+	await page.locator('#l1').click();
+	await expect(page).toHaveTitle("Page 6");
+	expect(text).toBe(" [pageswap] 2 flink old [pagereveal] 2 flink new");
+	text = "";
+	await page.locator('#l1').click();
+	await expect(page).toHaveTitle("Page 6");
+	expect(text).toBe(" [pageswap] 2 slink old [pagereveal] 2 slink new");
+	text = "";
+	await page.goBack();
+	await expect(page).toHaveTitle("Page 5");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 blink old [pagereveal] 2 blink new");
+	text = "";
+	await page.locator('#l2').click();
+	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 forward old [pagereveal] 2 forward new");
+	text = "";
+	await page.locator('#l2').click();
+	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 same old [pagereveal] 2 same new");
+	text = "";
+	await page.goBack();
+	await expect(page).toHaveTitle("Page 5");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 backward old [pagereveal] 2 backward new");
+});
+
+test('s override', async ({ page, browserName }) => {
+	test.skip(browserName !== 'webkit', "webkit only");
+	await start(page, "http://localhost:3000/page5/", "Page 5");
+
+	await page.locator('#l1').click();
+	await expect(page).toHaveTitle("Page 6");
+	expect(text).toBe(" [pageswap] 2 flink old [pagereveal] 2 flink new");
+	text = "";
+	await page.locator('#l1').click();
+	await expect(page).toHaveTitle("Page 6");
+	expect(text).toBe(" [pageswap] 2 slink old [pagereveal] 2 slink new");
+	text = "";
+	await page.goBack();
+	await expect(page).toHaveTitle("Page 5");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 1 old [pagereveal] 2 blink new");
+	text = "";
+	await page.locator('#l2').click();
+	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 forward old [pagereveal] 2 forward new");
+	text = "";
+	await page.locator('#l2').click();
+	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 2 same old [pagereveal] 2 same new");
+	text = "";
+	await page.goBack();
+	await expect(page).toHaveTitle("Page 5");
+	await page.waitForTimeout(100);
+	expect(text).toBe(" [pageswap] 1 old [pagereveal] 2 backward new");
 });
 
