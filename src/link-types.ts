@@ -58,6 +58,6 @@ addEventListener('pagereveal', pageReveal);
 
 function setViewTransitionTypes(types: string, event: PageSwapEvent | PageRevealEvent) {
 	const list = types.trim().split(/\s+/);
-	list.length > 1 && event.viewTransition?.types?.clear();
+	list.length > 1 && list[0] === 'none' && list.shift() && event.viewTransition?.types?.clear();
 	list.forEach((type) => event.viewTransition?.types?.add(type));
 }
