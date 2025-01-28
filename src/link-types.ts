@@ -1,9 +1,5 @@
 import { sourceElement } from './source-element';
-import {
-	navigationType,
-	from,
-	to,
-} from './history';
+import { navigationType, from, to } from './history';
 
 const LINK_TYPES = 'data-vtbag-link-types';
 const ALL_LINK_TYPES = 'vtbag-all-link-types';
@@ -20,8 +16,8 @@ const pageSwap = (event: PageSwapEvent) => {
 			const splitTypes = (allTypes[to] ?? '').split(/\s*\/\s*/);
 			types = splitTypes[0] ?? '';
 		} else {
-			if (navigationType === "traverse") {
-				types = allTypes[from];
+			if (navigationType === 'traverse') {
+				types = allTypes[from] ?? '';
 			} else {
 				if (lastAnchor) {
 					types = lastAnchor.getAttribute(LINK_TYPES) ?? '';
@@ -37,11 +33,9 @@ const pageSwap = (event: PageSwapEvent) => {
 			}
 		}
 	}
-	setViewTransitionTypes(types + " old", event);
+	setViewTransitionTypes(types + ' old', event);
 };
 addEventListener('pageswap', pageSwap);
-
-
 
 const pageReveal = (event: PageRevealEvent) => {
 	if (!event.viewTransition) return;
@@ -58,7 +52,7 @@ const pageReveal = (event: PageRevealEvent) => {
 			types = splitTypes[splitTypes.length - 1] ?? '';
 		}
 	}
-	setViewTransitionTypes(types + " new", event);
+	setViewTransitionTypes(types + ' new', event);
 };
 addEventListener('pagereveal', pageReveal);
 

@@ -6,7 +6,7 @@ export let toUrl: string | null;
 
 const pageReveal = (e: PageRevealEvent) => {
 	history.state?.vtbagId ?? history.replaceState({ vtbagId: history.length }, '');
-	from = parseInt(sessionStorage.getItem('vtbag-id') ?? "NaN", 10);
+	from = parseInt(sessionStorage.getItem('vtbag-id') ?? 'NaN', 10);
 	to = history.state.vtbagId;
 	navigationType = sessionStorage.getItem('vtbag-navigation-type') as NavigationTypeString;
 	sessionStorage.setItem('vtbag-id', '' + to);
@@ -15,7 +15,7 @@ const pageReveal = (e: PageRevealEvent) => {
 };
 addEventListener('pagereveal', pageReveal);
 
-const pageSwap = (e:PageSwapEvent) => {
+const pageSwap = (e: PageSwapEvent) => {
 	if (!e.activation) return;
 	navigationType = e.activation.navigationType;
 	fromUrl = e.activation.from?.url ?? '';
@@ -27,10 +27,10 @@ const pageSwap = (e:PageSwapEvent) => {
 			: navigationType === 'replace'
 				? from
 				: e.activation.entry.index !== -1
-					? from + (e.activation.entry.index - (e.activation.from?.index??-1))
+					? from + (e.activation.entry.index - (e.activation.from?.index ?? -1))
 					: NaN;
 	sessionStorage.setItem('vtbag-navigation-type', navigationType);
 	sessionStorage.setItem('vtbag-from', fromUrl);
 	sessionStorage.setItem('vtbag-to', toUrl);
-}
+};
 addEventListener('pageswap', pageSwap);

@@ -1,2 +1,2 @@
-import "./directions";
-import "./link-types";
+import './directions';
+import './link-types';

@@ -1,9 +1,4 @@
-import {
-	from,
-	fromUrl,
-	to,
-	toUrl,
-} from './history';
+import { from, fromUrl, to, toUrl } from './history';
 
 const currentScript = document.currentScript;
 
@@ -41,7 +36,7 @@ function directionType(hereIdx: number, fromIdx: number) {
 	return hereIdx < fromIdx ? direction[0] : hereIdx === fromIdx ? direction[1] : direction[2];
 }
 
-function direction(e: PageSwapEvent|PageRevealEvent) {
+function direction(e: PageSwapEvent | PageRevealEvent) {
 	if (!e.viewTransition) return;
 
 	let toIdx = to;
@@ -50,7 +45,7 @@ function direction(e: PageSwapEvent|PageRevealEvent) {
 	const pages = allPages();
 	if (pages.length) {
 		fromIdx = pages.indexOf(new URL(fromUrl ?? '.', location.href).pathname);
-		toIdx = pages.indexOf(new	URL(toUrl ?? '.', location.href).pathname);
+		toIdx = pages.indexOf(new URL(toUrl ?? '.', location.href).pathname);
 	}
 	sessionStorage.removeItem('vtbag-signal-attribute');
 	sessionStorage.removeItem('vtbag-signal-type');
@@ -71,7 +66,7 @@ function direction(e: PageSwapEvent|PageRevealEvent) {
 			sessionStorage.setItem('vtbag-signal-type', value);
 		}
 	}
-	e.viewTransition.types.add(e.type === 'pageswap' ? 'old':'new');
+	e.viewTransition.types.add(e.type === 'pageswap' ? 'old' : 'new');
 }
 
 function recall(e: PageRevealEvent) {
@@ -92,9 +87,9 @@ function allPages() {
 	const selector = currentScript!.dataset.selector;
 	const pages = selector
 		? [...document.querySelectorAll<HTMLAnchorElement>(selector)].map((e) => {
-			const u = new URL(e.href ?? '.', location.href);
-			return u.pathname;
-		})
+				const u = new URL(e.href ?? '.', location.href);
+				return u.pathname;
+			})
 		: [];
 	return pages;
 }
