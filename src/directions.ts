@@ -62,11 +62,11 @@ function direction(e: PageSwapEvent | PageRevealEvent) {
 
 		value = directionType(toIdx, fromIdx);
 		if (value) {
-			e.viewTransition.types.add(value);
+			e.viewTransition.types?.add(value);
 			sessionStorage.setItem('vtbag-signal-type', value);
 		}
 	}
-	e.viewTransition.types.add(e.type === 'pageswap' ? 'old' : 'new');
+	e.viewTransition.types?.add(e.type === 'pageswap' ? 'old' : 'new');
 }
 
 function recall(e: PageRevealEvent) {
@@ -78,8 +78,8 @@ function recall(e: PageRevealEvent) {
 			e.viewTransition.finished.then(() => document.documentElement.removeAttribute(name));
 		}
 		let value = sessionStorage.getItem('vtbag-signal-type');
-		value && e.viewTransition.types.add(value);
-		e.viewTransition.types.add('new');
+		value && e.viewTransition.types?.add(value);
+		e.viewTransition.types?.add('new');
 	}
 }
 
