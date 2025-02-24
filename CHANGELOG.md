@@ -1,5 +1,11 @@
 # @vtbag/turn-signal
 
+## 1.3.1 - 2025-02-24
+
+### Patch Changes
+
+- 65fa486: Makes code more defensiv facing optional values.
+
 ## 1.3.0 - 2024-12-30
 
 ### Minor Changes
