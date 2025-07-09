@@ -8,7 +8,7 @@ export default defineConfig({
 		port: 3000,
 		reuseExistingServer: !process.env.CI,
 	},
-	projects: process.env.CI ? [
+	projects: [
 		{
 			name: 'chromium',
 			use: { ...devices['Desktop Chrome'], channel: 'chrome', },
@@ -17,9 +17,5 @@ export default defineConfig({
 			name: 'webkit',
 			use: { ...devices['Desktop Safari'], browserName: 'webkit' },
 		},
-	] : [
-		{
-			name: 'chromium',
-			use: { ...devices['Desktop Chrome'], channel: 'chrome', },
-		}],
+	] ,
 });

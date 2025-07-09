@@ -1,6 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
 let text = "";
-async function start(page: Page, url="http://localhost:3000/page1/", title="Page 1") {
+async function start(page: Page, url = "http://localhost:3000/page1/", title = "Page 1") {
 	text = "";
 	page.on("console", msg => msg.text().startsWith("test") && (text += msg.text().slice(4)));
 	await page.goto(url);
@@ -13,6 +13,7 @@ test('basic navigation', async ({ page }) => {
 	await start(page);
 	await page.locator('#l1').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 forward old [pagereveal] 2 forward new");
 });
 
@@ -74,6 +75,7 @@ test('multi', async ({ page, browserName }) => {
 	await start(page);
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 2");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 3 f1 f2 old [pagereveal] 3 f1 f2 new");
 	text = "";
 	await page.goBack();
@@ -117,6 +119,7 @@ test('empty', async ({ page }) => {
 	await page.goBack();
 	await expect(page).toHaveTitle('Page 1');
 	await page.waitForTimeout(100);
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 1 old [pagereveal] 1 new");
 });
 
@@ -143,6 +146,8 @@ test('two', async ({ page, browserName }) => {
 	text = "";
 	await page.locator('#l1').click();
 	await expect(page).toHaveTitle("Page 1");
+
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 3 explicit backward old [pagereveal] 3 explicit backward new");
 	text = "";
 	await page.goBack();
@@ -184,6 +189,7 @@ test('full', async ({ page, browserName }) => {
 	await start(page);
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 2");
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 3 f1 f2 old [pagereveal] 3 f1 f2 new");
 	text = "";
 	await page.locator('#l2').click();
@@ -192,6 +198,7 @@ test('full', async ({ page, browserName }) => {
 	text = "";
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 4");
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 2 foo old [pagereveal] 2 foo new");
 	text = "";
 	await page.goBack();
@@ -216,6 +223,7 @@ test('full', async ({ page, browserName }) => {
 	text = "";
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 1");
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 2 bla old [pagereveal] 2 bla new");
 	text = "";
 	await page.locator('#l8').click();

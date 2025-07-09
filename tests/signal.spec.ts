@@ -17,6 +17,7 @@ test('full', async ({ page }) => {
 	text = "";
 	await page.locator('#l3').click();
 	await expect(page).toHaveTitle("Page 3");
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 2 forward old [pagereveal] 2 forward new");
 	text = "";
 	await page.locator('#l2').click();
