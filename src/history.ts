@@ -1,4 +1,4 @@
-export let navigationType: NavigationTypeString | null;
+export let navigationType: NavigationType | null;
 export let from: number;
 export let fromUrl: string | null;
 export let to: number;
@@ -8,7 +8,7 @@ const pageReveal = (e: PageRevealEvent) => {
 	history.state?.vtbagId ?? history.replaceState({ vtbagId: history.length }, '');
 	from = parseInt(sessionStorage.getItem('vtbag-id') ?? 'NaN', 10);
 	to = history.state.vtbagId;
-	navigationType = sessionStorage.getItem('vtbag-navigation-type') as NavigationTypeString;
+	navigationType = sessionStorage.getItem('vtbag-navigation-type') as NavigationType;
 	sessionStorage.setItem('vtbag-id', '' + to);
 	fromUrl = sessionStorage.getItem('vtbag-from');
 	toUrl = sessionStorage.getItem('vtbag-to');

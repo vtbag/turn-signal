@@ -11,10 +11,7 @@ else
 fi
 npx esbuild src/index.ts src/forced-traversal.ts src/link-types.ts src/directions.ts src/debug.ts --bundle $OPTS --target=ESnext --outdir=lib
 
-cp lib/*.js lib/*.map tests
+cp lib/*.js lib/*.map tests 2>/dev/null || true
 tsc
-rm -f lib/debug.d.ts
-rm -f lib/directions.d.ts
-rm -f lib/forced-traversal.d.ts
-rm -f lib/index.d.ts
-rm -f lib/link-types.d.ts
+rm lib/src/*.d.ts
+rmdir lib/src

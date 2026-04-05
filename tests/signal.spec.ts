@@ -32,6 +32,7 @@ test('full', async ({ page }) => {
 	text = "";
 	await page.locator('#l4').click();
 	await expect(page).toHaveTitle("Page 4");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 forward old [pagereveal] 2 forward new");
 	text = "";
 	await page.locator('#l2').click();

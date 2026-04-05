@@ -194,6 +194,7 @@ test('full', async ({ page, browserName }) => {
 	text = "";
 	await page.locator('#l2').click();
 	await expect(page).toHaveTitle("Page 3");
+	await new Promise(r => setTimeout(r, 100));
 	expect(text).toBe(" [pageswap] 2 hi old [pagereveal] 2 hi new");
 	text = "";
 	await page.locator('#l3').click();
@@ -298,10 +299,12 @@ test('override', async ({ page, browserName }) => {
 
 	await page.locator('#l1').click();
 	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 flink old [pagereveal] 2 flink new");
 	text = "";
 	await page.locator('#l1').click();
 	await expect(page).toHaveTitle("Page 6");
+	await page.waitForTimeout(100);
 	expect(text).toBe(" [pageswap] 2 slink old [pagereveal] 2 slink new");
 	text = "";
 	await page.goBack();

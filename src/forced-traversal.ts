@@ -1,5 +1,3 @@
-const navigation = window.navigation;
-
 function navigate(e: NavigateEvent) {
 	if (e.navigationType === 'push') {
 		const entries = navigation?.entries() ?? [];
