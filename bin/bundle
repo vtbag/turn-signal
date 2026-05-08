@@ -12,6 +12,6 @@ fi
 npx esbuild src/index.ts src/forced-traversal.ts src/link-types.ts src/directions.ts src/debug.ts --bundle $OPTS --target=ESnext --outdir=lib
 
 cp lib/*.js lib/*.map tests 2>/dev/null || true
-tsc
+npx tsc
 rm lib/src/*.d.ts
 rmdir lib/src
